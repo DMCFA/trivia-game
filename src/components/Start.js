@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "react-bootstrap";
 import { useHistory } from "react-router";
+import Theme from "./Theme";
+import Difficulty from "./Difficulty";
+import Amount from "./Amount";
 
 const Start = () => {
-  const [theme, setTheme] = useState("");
-  const [difficulty, setDifficulty] = useState("");
-  const [amount, setAmount] = useState("");
   const history = useHistory();
   const handleStart = () => {
     history.push("/game");
@@ -13,10 +13,9 @@ const Start = () => {
 
   return (
     <div className="start-main">
-      <div className="theme">
-        <h2 className="theme-name">Choose your theme</h2>
-        <Button></Button>
-      </div>
+      <Theme />
+      <Difficulty />
+      <Amount />
       <div className="begin">
         <h1 className="begin-title">Trivia Game</h1>
         <Button
