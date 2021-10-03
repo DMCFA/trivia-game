@@ -1,38 +1,108 @@
-.App {
+:root {
+  --heading-size: 70px;
+  --heading-color: #f4c7ab;
+  --heading-weight: 700;
+  --heading-variant: small-caps;
+}
+
+/**START**/
+
+.begin,
+.theme,
+.difficulty,
+.amount,
+.start {
+  min-height: 100vh;
+}
+
+.begin-title,
+.start-title {
+  color: #1c7947 !important;
+}
+
+.begin-title,
+.theme-name,
+.difficulty-name,
+.amount-name,
+.start-title {
   text-align: center;
+  padding-block: 12vh;
+  color: var(--heading-color);
+  font-size: var(--heading-size);
+  font-weight: var(--heading-weight);
+  font-variant: var(--heading-variant);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.begin-btn-group,
+.theme-btn-group,
+.difficulty-btn-group,
+.amount-btn-group,
+.start-btn-group {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 5vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.begin-btn,
+.theme-btn,
+.difficulty-btn,
+.amount-btn,
+.start-btn {
+  margin-inline: 70px;
+  padding: 35px 55px !important;
+  border-radius: 5px !important;
+}
+
+.begin-btn {
+  margin-top: 5vh;
+  padding: 35px !important;
+}
+
+/**ANIMATIONS**/
+
+.begin-btn-pulsate {
+  -webkit-animation: begin-btn-pulsate 1.5s ease-in-out infinite both;
+  animation: begin-btn-pulsate 1.5s ease-in-out infinite both;
+}
+
+@-webkit-keyframes begin-btn-pulsate {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes begin-btn-pulsate {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.start-title {
+  animation: glow 2s ease-in-out infinite;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+@keyframes glow {
   from {
-    transform: rotate(0deg);
+    text-shadow: 0 0 20px #2d9da9;
   }
   to {
-    transform: rotate(360deg);
+    text-shadow: 0 0 30px #34b3c1, 0 0 10px #4dbbc7;
   }
 }
