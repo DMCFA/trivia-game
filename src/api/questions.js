@@ -14,7 +14,7 @@ const theme = (x) => {
   switch ("category") {
     case "books":
       return "category=10";
-    case "films":
+    case "movies":
       return "category=11";
     case "tv":
       return "category=14";
