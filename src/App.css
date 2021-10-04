@@ -3,6 +3,7 @@
   --heading-color: #f4c7ab;
   --heading-weight: 700;
   --heading-variant: small-caps;
+  --btn-font: "Roboto", sans-serif;
 }
 
 /**START**/
@@ -17,7 +18,7 @@
 
 .begin-title,
 .start-title {
-  color: #1c7947 !important;
+  color: #ffffff !important;
 }
 
 .begin-title,
@@ -51,6 +52,10 @@
   margin-inline: 70px;
   padding: 35px 55px !important;
   border-radius: 5px !important;
+  font-family: var(--btn-font);
+  font-variant: small-caps;
+  letter-spacing: 0.2rem;
+  font-weight: var(--heading-weight);
 }
 
 .begin-btn {
