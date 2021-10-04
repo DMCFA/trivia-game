@@ -6,9 +6,6 @@ import Difficulty from "./Difficulty";
 const Theme = () => {
   const [theme, setTheme] = useState("");
 
-  const handleClick = (e) => {
-    setTheme(e);
-  };
   return (
     <div>
       <div className="theme">
@@ -19,7 +16,7 @@ const Theme = () => {
               <Button
                 className="theme-btn"
                 value="books"
-                onClick={(e) => handleClick(e.target.value)}
+                onClick={(e) => setTheme(e.target.value)}
               >
                 Books
               </Button>
@@ -27,28 +24,28 @@ const Theme = () => {
                 className="theme-btn"
                 variant="success"
                 value="movies"
-                onClick={(e) => handleClick(e.target.value)}
+                onClick={(e) => setTheme(e.target.value)}
               >
                 Movies
               </Button>
               <Button
                 className="theme-btn"
                 variant="warning"
-                onClick={(e) => handleClick(e.target.value)}
+                onClick={(e) => setTheme(e.target.value)}
               >
                 TV Shows
               </Button>
               <Button
                 className="theme-btn"
                 variant="danger"
-                onClick={(e) => handleClick(e.target.value)}
+                onClick={(e) => setTheme(e.target.value)}
               >
                 Games
               </Button>
               <Button
                 className="theme-btn"
                 variant="info"
-                onClick={(e) => handleClick(e.target.value)}
+                onClick={(e) => setTheme(e.target.value)}
               >
                 Sports
               </Button>
@@ -56,7 +53,7 @@ const Theme = () => {
           </ButtonGroup>
         </div>
       </div>
-      <Difficulty id="difficulty" />
+      <Difficulty id="difficulty" theme={theme} />
     </div>
   );
 };
