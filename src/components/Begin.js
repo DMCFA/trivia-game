@@ -4,7 +4,6 @@ import { Link } from "react-scroll";
 import Theme from "./Theme";
 
 const Begin = () => {
-  const pushDown = () => {};
   return (
     <div className="main">
       <div className="begin">
