@@ -3,11 +3,9 @@ import { Button, ButtonGroup } from "react-bootstrap";
 import { Link } from "react-scroll";
 import Amount from "./Amount";
 
-const Difficulty = () => {
+const Difficulty = ({ theme }) => {
   const [difficulty, setDifficulty] = useState("");
-  const handleClick = (e) => {
-    setDifficulty(e);
-  };
+
   return (
     <div>
       <div className="difficulty">
@@ -18,7 +16,7 @@ const Difficulty = () => {
               <Button
                 className="difficulty-btn"
                 value="easy"
-                onClick={(e) => handleClick(e.target.value)}
+                onClick={(e) => setDifficulty(e.target.value)}
               >
                 Easy
               </Button>
@@ -26,14 +24,14 @@ const Difficulty = () => {
                 className="difficulty-btn"
                 variant="success"
                 value="medium"
-                onClick={(e) => handleClick(e.target.value)}
+                onClick={(e) => setDifficulty(e.target.value)}
               >
                 Medium
               </Button>
               <Button
                 className="difficulty-btn"
                 variant="warning"
-                onClick={(e) => handleClick(e.target.value)}
+                onClick={(e) => setDifficulty(e.target.value)}
               >
                 Hard
               </Button>
@@ -41,7 +39,7 @@ const Difficulty = () => {
           </ButtonGroup>
         </div>
       </div>
-      <Amount />
+      <Amount id="amount" theme={theme} difficulty={difficulty} />
     </div>
   );
 };

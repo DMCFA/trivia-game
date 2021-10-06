@@ -4,11 +4,8 @@ import { Link } from "react-scroll";
 
 import Start from "./Start";
 
-const Amount = () => {
+const Amount = ({ theme, difficulty }) => {
   const [amount, setAmount] = useState("");
-  const handleClick = (e) => {
-    setAmount(e);
-  };
   return (
     <div>
       <div className="amount">
@@ -19,7 +16,7 @@ const Amount = () => {
               <Button
                 className="amount-btn"
                 value="easy"
-                onClick={(e) => handleClick(e.target.value)}
+                onClick={(e) => setAmount(e.target.value)}
               >
                 10
               </Button>
@@ -27,28 +24,28 @@ const Amount = () => {
                 className="amount-btn"
                 variant="success"
                 value="medium"
-                onClick={(e) => handleClick(e.target.value)}
+                onClick={(e) => setAmount(e.target.value)}
               >
                 20
               </Button>
               <Button
                 className="amount-btn"
                 variant="warning"
-                onClick={(e) => handleClick(e.target.value)}
+                onClick={(e) => setAmount(e.target.value)}
               >
                 30
               </Button>
               <Button
                 className="amount-btn"
                 variant="danger"
-                onClick={(e) => handleClick(e.target.value)}
+                onClick={(e) => setAmount(e.target.value)}
               >
                 40
               </Button>
               <Button
                 className="amount-btn"
                 variant="info"
-                onClick={(e) => handleClick(e.target.value)}
+                onClick={(e) => setAmount(e.target.value)}
               >
                 50
               </Button>
@@ -56,7 +53,7 @@ const Amount = () => {
           </ButtonGroup>
         </div>
       </div>
-      <Start />
+      <Start amount={amount} theme={theme} difficulty={difficulty} />
     </div>
   );
 };
