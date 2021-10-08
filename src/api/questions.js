@@ -1,16 +1,18 @@
-const baseUrl = "https://opentdb.com/api.php?";
+import axios from "axios";
 
-const difficulty = {
+export const baseUrl = "https://opentdb.com/api.php?";
+
+export const difficulty = {
   easy: "difficulty=easy",
   medium: "difficulty=medium",
   hard: "difficulty=hard",
 };
 
-const amount = (n) => {
+export const amount = (n) => {
   return `amount=${n}`;
 };
 
-const theme = (x) => {
+export const theme = (x) => {
   switch ("category") {
     case "books":
       return "category=10";
@@ -27,4 +29,15 @@ const theme = (x) => {
   }
 };
 
-export { difficulty, amount, theme };
+async function getData(amount, difficulty, theme) {
+  try {
+    const response = await axios.get(
+      `${baseUrl}${difficulty}${amount}${theme}`
+    );
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export default getData;
