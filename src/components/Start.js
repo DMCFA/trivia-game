@@ -7,9 +7,7 @@ const Start = ({ theme, difficulty, amount }) => {
   const handleStart = () => {
     history.push({
       pathname: "/game",
-      state: theme,
-      difficulty,
-      amount,
+      state: { theme, difficulty, amount },
     });
   };
   return (
