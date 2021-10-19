@@ -53,7 +53,7 @@ const Amount = ({ theme, difficulty }) => {
           </ButtonGroup>
         </div>
       </div>
-      <Start amount={amount} theme={theme} difficulty={difficulty} />
+      <Start amount={amount} />
     </div>
   );
 };
