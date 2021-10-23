@@ -8,11 +8,15 @@ const Game = ({ theme, difficulty, amount }) => {
   //   data.map((el) => console.log(el));
   // }, [theme, amount, difficulty]);
 
+  const quiz = useEffect(() => {
+    return axios.get("https://opentdb.com/api.php?amount=10");
+  }, []);
+
   return (
     <div>
-      {console.log(theme)}
-      {console.log(difficulty)}
-      {console.log(amount)}
+      {quiz.map((question) => (
+        <span>question={question}</span>
+      ))}
     </div>
   );
 };
