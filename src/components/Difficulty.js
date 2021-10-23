@@ -3,7 +3,7 @@ import { Button, ButtonGroup } from "react-bootstrap";
 import { Link } from "react-scroll";
 import Amount from "./Amount";
 
-const Difficulty = ({ theme }) => {
+const Difficulty = () => {
   const [difficulty, setDifficulty] = useState("");
 
   return (
@@ -39,7 +39,7 @@ const Difficulty = ({ theme }) => {
           </ButtonGroup>
         </div>
       </div>
-      <Amount id="amount" theme={theme} difficulty={difficulty} />
+      <Amount id="amount" difficulty={difficulty} />
     </div>
   );
 };
