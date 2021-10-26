@@ -1,6 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import optionsReducer from "./features/options";
+import themeReducer from "./features/options/theme/themeSlice";
+import difficultyReducer from "./features/options/theme/difficultySlice";
+import amountReducer from "./features/options/theme/amountSlice";
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    theme: themeReducer,
+    difficulty: difficultyReducer,
+    amount: amountReducer,
+  },
 });
