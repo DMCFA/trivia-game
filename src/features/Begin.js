@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-scroll";
-import Theme from "./Theme";
+import Theme from "./options/theme/Theme";
 
 const Begin = () => {
   return (

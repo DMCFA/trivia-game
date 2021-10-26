@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch } from "react-redux";
 import { Button, ButtonGroup } from "react-bootstrap";
 import { Link } from "react-scroll";
 import Difficulty from "./Difficulty";
+import { theme } from "../theme/themeSlice";
 
 const Theme = () => {
-  const [theme, setTheme] = useState("");
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -16,7 +18,7 @@ const Theme = () => {
               <Button
                 className="theme-btn"
                 value="books"
-                onClick={(e) => setTheme(e.target.value)}
+                onClick={(e) => dispatch(theme(e.target.value))}
               >
                 Books
               </Button>
@@ -24,28 +26,28 @@ const Theme = () => {
                 className="theme-btn"
                 variant="success"
                 value="movies"
-                onClick={(e) => setTheme(e.target.value)}
+                onClick={(e) => dispatch(theme(e.target.value))}
               >
                 Movies
               </Button>
               <Button
                 className="theme-btn"
                 variant="warning"
-                onClick={(e) => setTheme(e.target.value)}
+                onClick={(e) => dispatch(theme(e.target.value))}
               >
                 TV Shows
               </Button>
               <Button
                 className="theme-btn"
                 variant="danger"
-                onClick={(e) => setTheme(e.target.value)}
+                onClick={(e) => dispatch(theme(e.target.value))}
               >
                 Games
               </Button>
               <Button
                 className="theme-btn"
                 variant="info"
-                onClick={(e) => setTheme(e.target.value)}
+                onClick={(e) => dispatch(theme(e.target.value))}
               >
                 Sports
               </Button>
@@ -53,7 +55,7 @@ const Theme = () => {
           </ButtonGroup>
         </div>
       </div>
-      <Difficulty id="difficulty" theme={theme} />
+      <Difficulty id="difficulty" />
     </div>
   );
 };

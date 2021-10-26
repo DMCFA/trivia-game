@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Button, ButtonGroup } from "react-bootstrap";
 import { Link } from "react-scroll";
-import Amount from "./Amount";
+import Amount from "../../../components/Amount";
+import { difficulty } from "../theme/themeSlice";
 
 const Difficulty = () => {
-  const [difficulty, setDifficulty] = useState("");
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -16,7 +18,7 @@ const Difficulty = () => {
               <Button
                 className="difficulty-btn"
                 value="easy"
-                onClick={(e) => setDifficulty(e.target.value)}
+                onClick={(e) => dispatch(difficulty(e.target.value))}
               >
                 Easy
               </Button>
@@ -24,14 +26,14 @@ const Difficulty = () => {
                 className="difficulty-btn"
                 variant="success"
                 value="medium"
-                onClick={(e) => setDifficulty(e.target.value)}
+                onClick={(e) => dispatch(difficulty(e.target.value))}
               >
                 Medium
               </Button>
               <Button
                 className="difficulty-btn"
                 variant="warning"
-                onClick={(e) => setDifficulty(e.target.value)}
+                onClick={(e) => dispatch(difficulty(e.target.value))}
               >
                 Hard
               </Button>

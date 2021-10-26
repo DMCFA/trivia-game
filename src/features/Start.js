@@ -2,13 +2,10 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { useHistory } from "react-router";
 
-const Start = ({ theme, difficulty, amount }) => {
+const Start = () => {
   const history = useHistory();
   const handleStart = () => {
-    history.push({
-      pathname: "/game",
-      state: { theme, difficulty, amount },
-    });
+    history.push("/game");
   };
   return (
     <div className="start">
