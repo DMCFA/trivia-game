@@ -2,8 +2,8 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { Button, ButtonGroup } from "react-bootstrap";
 import { Link } from "react-scroll";
-import Difficulty from "./Difficulty";
-import { theme } from "../theme/themeSlice";
+import Difficulty from "../difficulty/Difficulty";
+import { theme } from "./themeSlice";
 
 const Theme = () => {
   const dispatch = useDispatch();
@@ -33,6 +33,7 @@ const Theme = () => {
               <Button
                 className="theme-btn"
                 variant="warning"
+                value="tv"
                 onClick={(e) => dispatch(theme(e.target.value))}
               >
                 TV Shows
@@ -40,6 +41,7 @@ const Theme = () => {
               <Button
                 className="theme-btn"
                 variant="danger"
+                value="games"
                 onClick={(e) => dispatch(theme(e.target.value))}
               >
                 Games
@@ -47,6 +49,7 @@ const Theme = () => {
               <Button
                 className="theme-btn"
                 variant="info"
+                value="sports"
                 onClick={(e) => dispatch(theme(e.target.value))}
               >
                 Sports

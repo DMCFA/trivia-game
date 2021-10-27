@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { Button, ButtonGroup } from "react-bootstrap";
 import { Link } from "react-scroll";
-import Amount from "../../../components/Amount";
-import { difficulty } from "../theme/themeSlice";
+import Amount from "../amount/Amount";
+import { difficulty } from "./difficultySlice";
 
 const Difficulty = () => {
   const dispatch = useDispatch();
@@ -33,6 +33,7 @@ const Difficulty = () => {
               <Button
                 className="difficulty-btn"
                 variant="warning"
+                value="hard"
                 onClick={(e) => dispatch(difficulty(e.target.value))}
               >
                 Hard
@@ -41,7 +42,7 @@ const Difficulty = () => {
           </ButtonGroup>
         </div>
       </div>
-      <Amount id="amount" difficulty={difficulty} />
+      <Amount id="amount" />
     </div>
   );
 };

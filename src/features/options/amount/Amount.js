@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch } from "react-redux";
 import { Button, ButtonGroup } from "react-bootstrap";
 import { Link } from "react-scroll";
+import Start from "../../Start";
+import { amount } from "./amountSlice";
 
-import Start from "./Start";
-
-const Amount = ({ theme, difficulty }) => {
-  const [amount, setAmount] = useState("");
+const Amount = () => {
+  const dispatch = useDispatch();
   return (
     <div>
       <div className="amount">
@@ -15,37 +16,40 @@ const Amount = ({ theme, difficulty }) => {
             <Link to="start">
               <Button
                 className="amount-btn"
-                value="easy"
-                onClick={(e) => setAmount(e.target.value)}
+                value="10"
+                onClick={(e) => dispatch(amount(e.target.value))}
               >
                 10
               </Button>
               <Button
                 className="amount-btn"
                 variant="success"
-                value="medium"
-                onClick={(e) => setAmount(e.target.value)}
+                value="20"
+                onClick={(e) => dispatch(amount(e.target.value))}
               >
                 20
               </Button>
               <Button
                 className="amount-btn"
                 variant="warning"
-                onClick={(e) => setAmount(e.target.value)}
+                value="30"
+                onClick={(e) => dispatch(amount(e.target.value))}
               >
                 30
               </Button>
               <Button
                 className="amount-btn"
                 variant="danger"
-                onClick={(e) => setAmount(e.target.value)}
+                value="40"
+                onClick={(e) => dispatch(amount(e.target.value))}
               >
                 40
               </Button>
               <Button
                 className="amount-btn"
                 variant="info"
-                onClick={(e) => setAmount(e.target.value)}
+                value="50"
+                onClick={(e) => dispatch(amount(e.target.value))}
               >
                 50
               </Button>
@@ -53,7 +57,7 @@ const Amount = ({ theme, difficulty }) => {
           </ButtonGroup>
         </div>
       </div>
-      <Start amount={amount} />
+      <Start />
     </div>
   );
 };
