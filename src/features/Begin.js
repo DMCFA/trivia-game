@@ -9,13 +9,15 @@ const Begin = () => {
       <div className="begin">
         <h1 className="begin-title">🎲 Trivia Game 🎲</h1>
         <div className="begin-btn-group">
-          <Button
-            className="begin-btn begin-btn-pulsate"
-            size="lg"
-            variant="danger"
-          >
-            <Link to="theme">Choose my options</Link>
-          </Button>
+          <Link to="theme">
+            <Button
+              className="begin-btn begin-btn-pulsate"
+              size="lg"
+              variant="danger"
+            >
+              Choose my options
+            </Button>
+          </Link>
         </div>
       </div>
       <Theme id="theme" />
