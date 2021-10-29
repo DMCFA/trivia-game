@@ -111,3 +111,22 @@
     text-shadow: 0 0 30px #34b3c1, 0 0 10px #4dbbc7;
   }
 }
+
+/**GAME**/
+
+.game-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.questions-container {
+  display: flex;
+  width: 40%;
+  height: 40vh;
+  margin-bottom: 5%;
+  border-radius: 4px;
+  background-color: #c8e3d4;
+}
