@@ -35,7 +35,7 @@ async function getData(amount, theme, difficulty) {
     const response = await axios.get(
       `${baseUrl}${amount}&${theme}&${difficulty}`
     );
-    const data = await response.data;
+    const data = response.data;
     return data;
   } catch (error) {
     console.log(error);
