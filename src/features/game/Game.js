@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import { Button } from "react-bootstrap";
-import getData from "../../api/questions";
-import themeChosen from "../../api/questions";
-import { BackToSelectionBtn } from "./gameFunctions";
+import { getData, hasRequestFail } from "../../api/questions";
+import GameQuestion from "./gameHelper/GameQuestions";
+import { BackToSelectionBtn } from "./gameHelper/gameFunctions";
 
 const Game = () => {
   const theme = useSelector((state) => state.theme.value);
@@ -14,27 +13,26 @@ const Game = () => {
 
   const [rightAnswer, setRightAnswer] = useState(undefined);
   const [questions, setQuestions] = useState([]);
-  const [index, setIndex] = useState(1);
+  const [index, setIndex] = useState(0);
   const [backToSelection, setBackToSelection] = useState(false);
 
   useEffect(() => {
     getData(amount, theme, difficulty).then((results) => {
-      setQuestions(results);
+      setQuestions(results.results);
     });
   }, [amount, theme, difficulty]);
 
   useEffect(() => {
-    if (questions.results.length === 0) {
+    if (hasRequestFail) {
       toast.error("You need to make choices first!");
       setBackToSelection(true);
     }
-  }, [questions]);
+  }, []);
 
   return (
-    <div className="game-container">
-      <div className="questions-container">
-        {backToSelection && <BackToSelectionBtn />}
-      </div>
+    <div>
+      {backToSelection && <BackToSelectionBtn selection={backToSelection} />}
+      <GameQuestion questions={questions} />
     </div>
   );
 };
