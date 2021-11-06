@@ -27,7 +27,7 @@ const themeChosen = (choice) => {
   }
 };
 
-export let hasRequestFail = false;
+export let hasRequestFailed = false;
 
 export async function getData(amount, theme, difficulty) {
   difficulty = difficultyChosen(difficulty);
@@ -35,12 +35,12 @@ export async function getData(amount, theme, difficulty) {
   theme = themeChosen(theme);
   try {
     const response = await axios.get(
-      `${baseUrl}${amount}&${theme}&${difficulty}&type=boolean`
+      `${baseUrl}${amount}&${theme}&${difficulty}`
     );
     const data = response.data;
     return data;
   } catch (error) {
     console.log(error);
-    hasRequestFail = true;
+    hasRequestFailed = true;
   }
 }
