@@ -2,6 +2,7 @@
 
 ///*imports*///
 import { toast } from "react-toastify";
+import { ButtonGroup, Button } from "react-bootstrap";
 import { hasRequestFailed } from "../../../api/questions";
 
 ///*call and parse next question to be displayed*///
@@ -29,4 +30,43 @@ export const shuffleAnswers = (answersArray) => {
     answersArray[i] = t;
   }
   return answersArray;
+};
+
+export const multipleAnswerButtons = (answers) => {
+  return (
+    <ButtonGroup aria-label="group of buttons" size="lg">
+      <Button
+        className="answers-btn"
+        variant="success"
+        value={answers[0]}
+        onClick={(e) => e.target.value}
+      >
+        {answers[0]}
+      </Button>
+      <Button
+        className="answers-btn"
+        variant="success"
+        value={answers[1]}
+        onClick={(e) => e.target.value}
+      >
+        {answers[1]}
+      </Button>
+      <Button
+        className="answers-btn"
+        variant="success"
+        value={answers[2]}
+        onClick={(e) => e.target.value}
+      >
+        {answers[2]}
+      </Button>
+      <Button
+        className="answers-btn"
+        variant="success"
+        value={answers[3]}
+        onClick={(e) => e.target.value}
+      >
+        {answers[3]}
+      </Button>
+    </ButtonGroup>
+  );
 };
