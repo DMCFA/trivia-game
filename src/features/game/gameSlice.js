@@ -1,16 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  isLoading: true,
-  question: null,
-};
-
 export const questionSlice = createSlice({
-  name: "question",
-  initialState,
-  reducers: (state, action) => void (state.value = action.payload),
+  name: "score",
+  initialState: 0,
+  reducers: {
+    increment: (state) => state + 1,
+  },
 });
 
-export const { question } = questionSlice.actions;
+export const { increment } = questionSlice.actions;
 
 export default questionSlice.reducer;
