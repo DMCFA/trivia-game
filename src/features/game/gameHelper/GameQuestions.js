@@ -1,30 +1,66 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
-function GameQuestion({ questions }) {
-  //props and state
-  const allQuestions = questions;
-  const [displayNextQuestion, setDisplayNextQuestion] = useState(true);
-  let questionNum = 0;
+import { getData, hasRequestFailed } from "../../../api/questions";
+import {
+  nextQuestion,
+  shuffleAnswers,
+  multipleAnswerButtons,
+} from "./gameFunctions";
 
-  //call and parse next question to be displayed
-  const nextQuestion = () => {
-    const parser = new DOMParser();
-    setTimeout(() => {
-      const question = allQuestions[questionNum].question;
-      const parsedQuestion = parser.parseFromString(question, "text/html").body
-        .textContent;
-      return parsedQuestion;
-    }, 1000);
+function GameQuestion() {
+  ///*store values and local state*\\\
+  const theme = useSelector((state) => state.theme.value);
+  const difficulty = useSelector((state) => state.difficulty.value);
+  const amount = useSelector((state) => state.amount.value);
+
+  const [displayNextQuestion, setDisplayNextQuestion] = useState(false);
+  const [questions, setQuestions] = useState([]);
+  const [answerOptions, setAnswerOptions] = useState();
+  const [questionNum, setQuestionNum] = useState(0);
+
+  ///*get questions*\\\
+  useEffect(() => {
+    getData(amount, theme, difficulty).then((results) => {
+      setQuestions(results.results);
+    });
+    if (hasRequestFailed) {
+      toast.error("❌ Something went wrong! ❌");
+    }
+  }, [amount, theme, difficulty]);
+
+  useEffect(() => {
+    nextQuestion(questions, questionNum);
+  }, displayNextQuestion);
+
+  ///*check if is true/false OR multiple answers and create buttons*///
+  const hasMultipleAnswers = (allQuestions) => {
+    const question = allQuestions[questionNum];
+    if (question.type === "multiple") {
+      const allAnswers = question.incorrect_answers.slice();
+      allAnswers.push(question.correct_answer);
+      shuffleAnswers(allAnswers);
+      setAnswerOptions(allAnswers);
+    }
+    return false;
   };
 
-  const something = setTimeout(() => {
-    nextQuestion();
-  }, 1000);
-  //display question
+  ///*create buttons for questions*///
+  const createAnswerButtons = () => {
+    const answersArray = hasMultipleAnswers();
+    if (answersArray) {
+      return multipleAnswerButtons(answerOptions);
+    } else {
+      console.log("boolean");
+    }
+  };
+
+  ///*display question*///
   return (
-    <div>
-      <div>
-        <p>{something}</p>
+    <div className="game-container">
+      <div className="questions-container">
+        <p className="question">{nextQuestion}</p>
       </div>
     </div>
   );
