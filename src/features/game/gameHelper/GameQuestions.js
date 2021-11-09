@@ -7,6 +7,7 @@ import {
   nextQuestion,
   shuffleAnswers,
   multipleAnswerButtons,
+  loadingScreen,
 } from "./gameFunctions";
 
 function GameQuestion() {
@@ -14,25 +15,24 @@ function GameQuestion() {
   const theme = useSelector((state) => state.theme.value);
   const difficulty = useSelector((state) => state.difficulty.value);
   const amount = useSelector((state) => state.amount.value);
-
-  const [displayNextQuestion, setDisplayNextQuestion] = useState(false);
-  const [questions, setQuestions] = useState([]);
+  const [displayNextQuestion, setDisplayNextQuestion] = useState(true);
+  const [questions, setQuestions] = useState({});
+  const [isGameReady, setIsGameReady] = useState(false);
   const [answerOptions, setAnswerOptions] = useState();
   const [questionNum, setQuestionNum] = useState(0);
 
-  ///*get questions*\\\
+  ///*display questions*\\\
   useEffect(() => {
     getData(amount, theme, difficulty).then((results) => {
       setQuestions(results.results);
+      setIsGameReady(true);
     });
     if (hasRequestFailed) {
       toast.error("❌ Something went wrong! ❌");
     }
   }, [amount, theme, difficulty]);
 
-  useEffect(() => {
-    nextQuestion(questions, questionNum);
-  }, displayNextQuestion);
+  const displayQuestion = nextQuestion(questions, questionNum);
 
   ///*check if is true/false OR multiple answers and create buttons*///
   const hasMultipleAnswers = (allQuestions) => {
@@ -60,7 +60,9 @@ function GameQuestion() {
   return (
     <div className="game-container">
       <div className="questions-container">
-        <p className="question">{nextQuestion}</p>
+        <p className="question">
+          {displayQuestion} ready={isGameReady}
+        </p>
       </div>
     </div>
   );

@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
-import GameQuestion from "./gameHelper/gameQuestions";
+import GameQuestion from "./gameHelper/GameQuestions";
+import LoadingScreen from "./gameHelper/LoadingScreen";
 
-const Game = () => {
-  ///*get final score*\\\
+const Game = ({ ready }) => {
   const score = useSelector((state) => state.question.value);
+  const [areQuestionsReady, setAreQuestionsReady] = useState(false);
 
   return (
     <div>
-      <GameQuestion />
+      {ready ? <GameQuestion /> : <LoadingScreen />}
       <ToastContainer />
     </div>
   );
