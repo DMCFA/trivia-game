@@ -114,12 +114,18 @@
 
 /**GAME**/
 
+.loading-screen,
 .game-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.loading-icon {
+  height: 4em;
+  width: auto;
 }
 
 .questions-container {
