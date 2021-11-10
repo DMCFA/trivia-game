@@ -3,19 +3,26 @@
 ///*imports*///
 import { toast } from "react-toastify";
 import { ButtonGroup, Button } from "react-bootstrap";
-import { hasRequestFailed } from "../../../api/questions";
+
+//*parse questions and answers*\\
+export const parseText = (text) => {
+  const parser = new DOMParser();
+  return parser.parseFromString(text, "text/html").body.textContent;
+};
 
 ///*call and parse next question to be displayed*///
 export const nextQuestion = (allQuestions, questionNum) => {
-  const parser = new DOMParser();
   if (allQuestions.length === 0) {
     toast.info("Loading...");
   } else {
     const question = allQuestions[questionNum].question;
-    const parsedQuestion = parser.parseFromString(question, "text/html").body
-      .textContent;
-    return parsedQuestion;
+    return parseText(question);
   }
+};
+
+///*parse answers*\\\
+export const nextAnswer = (answers) => {
+  answers.forEach((el) => parseText(el));
 };
 
 ///*takes an array with all the possible answers from the api and shuffles them around*///
@@ -66,6 +73,29 @@ export const multipleAnswerButtons = (answers) => {
         onClick={(e) => e.target.value}
       >
         {answers[3]}
+      </Button>
+    </ButtonGroup>
+  );
+};
+
+export const trueOrFalseButtons = (answers) => {
+  return (
+    <ButtonGroup aria-label="group of buttons" size="lg">
+      <Button
+        className="answers-btn"
+        variant="success"
+        value={answers[0]}
+        onClick={(e) => e.target.value}
+      >
+        {answers[0]}
+      </Button>
+      <Button
+        className="answers-btn"
+        variant="success"
+        value={answers[1]}
+        onClick={(e) => e.target.value}
+      >
+        {answers[1]}
       </Button>
     </ButtonGroup>
   );
