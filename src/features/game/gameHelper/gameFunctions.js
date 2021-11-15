@@ -39,6 +39,7 @@ export const shuffleAnswers = (answersArray) => {
   return answersArray;
 };
 
+///* create buttons for multiple answers* \\\
 export const multipleAnswerButtons = (answers) => {
   return (
     <ButtonGroup aria-label="group of buttons" size="lg">
@@ -78,24 +79,25 @@ export const multipleAnswerButtons = (answers) => {
   );
 };
 
-export const trueOrFalseButtons = (answers) => {
+///* create buttons for true or false answers* \\\
+export const trueOrFalseButtons = () => {
   return (
     <ButtonGroup aria-label="group of buttons" size="lg">
       <Button
-        className="answers-btn"
+        className="answers-btn-boolean"
         variant="success"
-        value={answers[0]}
+        value="True"
         onClick={(e) => e.target.value}
       >
-        {answers[0]}
+        True
       </Button>
       <Button
-        className="answers-btn"
+        className="answers-btn-boolean"
         variant="success"
-        value={answers[1]}
+        value="False"
         onClick={(e) => e.target.value}
       >
-        {answers[1]}
+        False
       </Button>
     </ButtonGroup>
   );
