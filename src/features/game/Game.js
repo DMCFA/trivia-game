@@ -9,13 +9,14 @@ const Game = () => {
   const theme = useSelector((state) => state.theme.value);
   const difficulty = useSelector((state) => state.difficulty.value);
   const amount = useSelector((state) => state.amount.value);
+  const answer = useSelector((state) => state.answer.value);
   const [questions, setQuestions] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const score = useSelector((state) => state.question.value);
-  const [areQuestionsReady, setAreQuestionsReady] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
 
   ///*display questions*\\\
   useEffect(() => {
+    setIsLoading(true);
     getData(amount, theme, difficulty).then((results) => {
       setQuestions(results.results);
       setIsLoading(false);
@@ -23,7 +24,9 @@ const Game = () => {
     if (hasRequestFailed) {
       toast.error("❌ Something went wrong! ❌");
     }
-  }, [amount, theme, difficulty]);
+  }, []);
+
+  ///* update score *\\\
 
   return (
     <div>
