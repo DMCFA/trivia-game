@@ -11,7 +11,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/DMCFA/trivia-game">
-    <img src="src/img/readme.PNG" alt="Logo" width="160" height="160">
+    <img src="src/img/readme.PNG" alt="Logo" width="250" height="250">
   </a>
 
   <h3 align="center">Trivia Game</h3>
