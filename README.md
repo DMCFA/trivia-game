@@ -11,7 +11,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/DMCFA/trivia-game">
-    <img src="src/img/readme.PNG" alt="Logo" width="250" height="250">
+    <img src="src/img/readme.PNG" alt="Logo" width="220" height="150">
   </a>
 
   <h3 align="center">Trivia Game</h3>
@@ -61,8 +61,6 @@
 ## About The Project
 
 This a fun little personal project of mine, where I decided to create a trivia game app with different categories and difficulty to entertain when you are in need of killing some time.
-
-Use the `BLANK_README.md` to get started.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
