@@ -11,7 +11,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/DMCFA/trivia-game">
-    <img src="src/img/readme.PNG" alt="Logo" width="80" height="80">
+    <img src="src/img/readme.PNG" alt="Logo" width="160" height="160">
   </a>
 
   <h3 align="center">Trivia Game</h3>
@@ -59,8 +59,6 @@
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 This a fun little personal project of mine, where I decided to create a trivia game app with different categories and difficulty to entertain when you are in need of killing some time.
 
@@ -195,4 +193,3 @@ Use this space to list resources you find helpful and would like to give credit 
 [license-url]: https://github.com/DMCFA/trivia-game/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/duarte-almeida-dmcfa/
-[product-screenshot]: images/screenshot.png
