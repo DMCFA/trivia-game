@@ -9,46 +9,62 @@ import {
 } from "./gameFunctions";
 
 function GameQuestion({ questions }) {
-  ///*local states*\\\
+  ///////////////////////////////////
+  //local states
+  //////////////////////////////////
   const [displayNextQuestion, setDisplayNextQuestion] = useState(true);
+  const [isBoolean, setIsBoolean] = useState(false);
   const [answerOptions, setAnswerOptions] = useState([]);
   const [questionNum, setQuestionNum] = useState(0);
-
   const displayQuestion = nextQuestion(questions, questionNum);
 
-  ///*check if is true/false OR multiple answers and create buttons*\\\
+  ///////////////////////////////////
+  //check if question type is multiple or boolean
+  //////////////////////////////////
   const hasMultipleAnswers = (questions) => {
     const question = questions[questionNum];
     if (question.type === "multiple") {
       const allAnswers = question.incorrect_answers.slice();
       allAnswers.push(question.correct_answer);
       shuffleAnswers(allAnswers);
-      setAnswerOptions(allAnswers);
-      return multipleAnswerButtons(answerOptions);
+      return allAnswers;
     }
-    return trueOrFalseButtons();
+    setIsBoolean(true);
   };
 
-  ///*confirm if there are any more questions*\\\
+  ///////////////////////////////////
+  //set answers
+  //////////////////////////////////
+  useEffect(() => {
+    const answers = hasMultipleAnswers(questions);
+    setAnswerOptions(answers);
+  }, [questions]);
+
+  ///////////////////////////////////
+  //display buttons
+  //////////////////////////////////
+  const createButtons = () => {
+    if (!isBoolean) {
+      multipleAnswerButtons(answerOptions);
+    }
+    trueOrFalseButtons();
+  };
+
+  ///////////////////////////////////
+  //confirm if there are any more questions
+  //////////////////////////////////
   const anyQuestionsLeft = () => questionNum < questions.length - 1;
 
-  ///*test purposes*\\\
-  const testDummy = (questions) => {
-    console.log(questions);
-    console.log(questionNum);
-    const question = questions[questionNum];
-    console.log(question);
-    console.log(question.type);
-  };
-
-  ///*display question*///
+  ///////////////////////////////////
+  //display question
+  //////////////////////////////////
   return (
     <div className="game-container">
       <div className="questions-container">
         <div>
           <p className="question">{displayQuestion}</p>
         </div>
-        {questions.length > 0 && hasMultipleAnswers(questions)}
+        {questions.length > 0 && createButtons()}
       </div>
     </div>
   );

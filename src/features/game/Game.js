@@ -11,12 +11,11 @@ const Game = () => {
   const amount = useSelector((state) => state.amount.value);
   const answer = useSelector((state) => state.answer.value);
   const [questions, setQuestions] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const score = useSelector((state) => state.question.value);
 
   ///*display questions*\\\
   useEffect(() => {
-    setIsLoading(true);
     getData(amount, theme, difficulty).then((results) => {
       setQuestions(results.results);
       setIsLoading(false);
