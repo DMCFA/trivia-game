@@ -33,7 +33,7 @@ export const shuffleAnswers = (answersArray) => {
   while (arrLength) {
     i = Math.floor(Math.random() * arrLength--);
     t = answersArray[arrLength];
-    answersArray[t] = answersArray[i];
+    answersArray[arrLength] = answersArray[i];
     answersArray[i] = t;
   }
   return answersArray;
