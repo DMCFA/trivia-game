@@ -3,6 +3,7 @@
 ///*imports*///
 import { toast } from "react-toastify";
 import { ButtonGroup, Button } from "react-bootstrap";
+import { increment } from "./answerSlice";
 
 //*parse questions and answers*\\
 export const parseText = (text) => {
@@ -45,33 +46,33 @@ export const multipleAnswerButtons = (answers) => {
     <ButtonGroup aria-label="group of buttons" size="lg">
       <Button
         className="answers-btn"
-        variant="success"
+        variant="dark"
         value={answers[0]}
-        onClick={(e) => e.target.value}
+        onClick={(e) => storeAnswer(e)}
       >
         {answers[0]}
       </Button>
       <Button
         className="answers-btn"
-        variant="success"
+        variant="dark"
         value={answers[1]}
-        onClick={(e) => e.target.value}
+        onClick={(e) => storeAnswer(e)}
       >
         {answers[1]}
       </Button>
       <Button
         className="answers-btn"
-        variant="success"
+        variant="dark"
         value={answers[2]}
-        onClick={(e) => e.target.value}
+        onClick={(e) => storeAnswer(e)}
       >
         {answers[2]}
       </Button>
       <Button
         className="answers-btn"
-        variant="success"
+        variant="dark"
         value={answers[3]}
-        onClick={(e) => e.target.value}
+        onClick={(e) => storeAnswer(e)}
       >
         {answers[3]}
       </Button>
@@ -85,20 +86,29 @@ export const trueOrFalseButtons = () => {
     <ButtonGroup aria-label="group of buttons" size="lg">
       <Button
         className="answers-btn-boolean"
-        variant="success"
+        variant="dark"
         value="True"
-        onClick={(e) => e.target.value}
+        onClick={(e) => storeAnswer(e)}
       >
         True
       </Button>
       <Button
         className="answers-btn-boolean"
-        variant="success"
+        variant="dark"
         value="False"
-        onClick={(e) => e.target.value}
+        onClick={(e) => storeAnswer(e)}
       >
         False
       </Button>
     </ButtonGroup>
   );
+};
+
+///////////////////////////////////
+//store answer
+//////////////////////////////////
+export const storeAnswer = (e) => {
+  e.preventDefault();
+  const answer = e.target.value;
+  return answer;
 };
