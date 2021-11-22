@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { increment } from "./answerSlice";
 
 import {
   nextQuestion,
   shuffleAnswers,
   multipleAnswerButtons,
   trueOrFalseButtons,
+  storeAnswer,
 } from "./gameFunctions";
 
 function GameQuestion({ questions }) {
@@ -16,6 +18,8 @@ function GameQuestion({ questions }) {
   const [isBoolean, setIsBoolean] = useState(false);
   const [answerOptions, setAnswerOptions] = useState([]);
   const [questionNum, setQuestionNum] = useState(0);
+
+  const dispatch = useDispatch();
   const displayQuestion = nextQuestion(questions, questionNum);
 
   ///////////////////////////////////
@@ -43,11 +47,21 @@ function GameQuestion({ questions }) {
   ///////////////////////////////////
   //display buttons
   //////////////////////////////////
-  const createButtons = () => {
+  const createButtons = (answers) => {
     if (!isBoolean) {
-      multipleAnswerButtons(answerOptions);
+      return multipleAnswerButtons(answers);
     }
-    trueOrFalseButtons();
+    return trueOrFalseButtons();
+  };
+
+  ///////////////////////////////////
+  //update score
+  //////////////////////////////////
+  const updateScore = () => {
+    const question = questions[questionNum];
+    if (storeAnswer === question.correct_answer) {
+      dispatch(increment());
+    }
   };
 
   ///////////////////////////////////
@@ -56,15 +70,16 @@ function GameQuestion({ questions }) {
   const anyQuestionsLeft = () => questionNum < questions.length - 1;
 
   ///////////////////////////////////
-  //display question
+  //display next question
   //////////////////////////////////
+
   return (
     <div className="game-container">
       <div className="questions-container">
-        <div>
-          <p className="question">{displayQuestion}</p>
+        <div className="question">
+          <p>{displayQuestion}</p>
+          <div>{createButtons(answerOptions)}</div>
         </div>
-        {questions.length > 0 && createButtons()}
       </div>
     </div>
   );
