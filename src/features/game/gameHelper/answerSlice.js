@@ -4,7 +4,7 @@ export const answerSlice = createSlice({
   name: "answer",
   initialState: "",
   reducers: {
-    answer: (state, action) => (state.value = action.payload),
+    increment: (state, action) => (state.value = action.payload),
   },
 });
 
