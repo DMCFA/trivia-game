@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { getData, hasRequestFailed } from "../../api/questions";
 import GameQuestion from "./gameHelper/GameQuestions";
 import LoadingScreen from "./gameHelper/LoadingScreen";
+import Score from "./score/Score";
 
 const Game = () => {
   const theme = useSelector((state) => state.theme.value);
@@ -12,7 +13,6 @@ const Game = () => {
   const answer = useSelector((state) => state.answer.value);
   const [questions, setQuestions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const score = useSelector((state) => state.question.value);
 
   ///*display questions*\\\
   useEffect(() => {
@@ -25,10 +25,9 @@ const Game = () => {
     }
   }, []);
 
-  ///* update score *\\\
-
   return (
     <div>
+      {isLoading ? <></> : <Score />}
       {isLoading ? <LoadingScreen /> : <GameQuestion questions={questions} />}
       <ToastContainer />
     </div>
