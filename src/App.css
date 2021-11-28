@@ -129,11 +129,18 @@
 }
 
 .score-container {
-  float: right;
-  background-color: red;
+  position: absolute;
+  right: 0;
 }
 
 .score {
+  padding-top: 1em;
+  padding-right: 4em;
+  color: var(--heading-color);
+  font-family: var(--btn-font);
+  font-weight: var(--heading-variant);
+  font-variant: var(--heading-variant);
+  letter-spacing: 0.3rem;
 }
 
 .questions-container {
@@ -156,14 +163,22 @@
 }
 
 .btn-group {
-  margin-top: 6%;
+  margin-top: 5%;
+  margin-bottom: 2%;
 }
 
 .answers-btn {
-  margin: 0 5%;
+  margin: 0 3%;
   border-radius: 4% !important;
   font-family: var(--btn-font);
   font-size: 0.7em !important;
+  opacity: 0.95;
+}
+
+.answers-btn-boolean {
+  border-radius: 4%;
+  font-family: var(--btn-font);
+  font-size: 1.5em !important;
   opacity: 0.95;
 }
 
