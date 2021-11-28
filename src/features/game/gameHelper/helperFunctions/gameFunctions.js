@@ -3,7 +3,7 @@
 ///*imports*///
 import { toast } from "react-toastify";
 import { ButtonGroup, Button } from "react-bootstrap";
-import { increment } from "./answerSlice";
+import { increment } from "../answerSlice";
 
 //*parse questions and answers*\\
 export const parseText = (text) => {
@@ -23,21 +23,24 @@ export const nextQuestion = (allQuestions, questionNum) => {
 
 ///*parse answers*\\\
 export const nextAnswer = (answers) => {
-  answers.forEach((el) => parseText(el));
+  const parsedAnswers = [];
+  answers.forEach((el) => parsedAnswers.push(parseText(el)));
+  return parsedAnswers;
 };
 
 ///*takes an array with all the possible answers from the api and shuffles them around*///
 export const shuffleAnswers = (answersArray) => {
-  let arrLength = answersArray.length,
+  const answers = nextAnswer(answersArray);
+  let arrLength = answers.length,
     i,
     t;
   while (arrLength) {
     i = Math.floor(Math.random() * arrLength--);
-    t = answersArray[arrLength];
-    answersArray[arrLength] = answersArray[i];
-    answersArray[i] = t;
+    t = answers[arrLength];
+    answers[arrLength] = answers[i];
+    answers[i] = t;
   }
-  return answersArray;
+  return answers;
 };
 
 ///* create buttons for multiple answers* \\\
