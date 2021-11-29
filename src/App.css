@@ -8,6 +8,13 @@
 
 /**START**/
 
+.dice-img {
+  width: 70px;
+  height: 70px;
+  margin: 15px;
+  padding-block-end: 15px;
+}
+
 .begin,
 .theme,
 .difficulty,
