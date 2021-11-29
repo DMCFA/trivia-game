@@ -1,10 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState = {
+  value: 0,
+};
+
 export const questionSlice = createSlice({
   name: "score",
-  initialState: 0,
+  initialState,
   reducers: {
-    increment: (state) => state + 1,
+    increment: (state) => void (state.value += 1),
   },
 });
 
