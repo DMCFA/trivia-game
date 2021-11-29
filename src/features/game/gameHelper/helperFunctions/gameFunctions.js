@@ -2,8 +2,6 @@
 
 ///*imports*///
 import { toast } from "react-toastify";
-import { ButtonGroup, Button } from "react-bootstrap";
-import { increment } from "../answerSlice";
 
 //*parse questions and answers*\\
 export const parseText = (text) => {
@@ -41,77 +39,4 @@ export const shuffleAnswers = (answersArray) => {
     answers[i] = t;
   }
   return answers;
-};
-
-///* create buttons for multiple answers* \\\
-export const multipleAnswerButtons = (answers) => {
-  return (
-    <ButtonGroup aria-label="group of buttons" size="lg">
-      <Button
-        className="answers-btn"
-        variant="dark"
-        value={answers[0]}
-        onClick={(e) => storeAnswer(e)}
-      >
-        {answers[0]}
-      </Button>
-      <Button
-        className="answers-btn"
-        variant="dark"
-        value={answers[1]}
-        onClick={(e) => storeAnswer(e)}
-      >
-        {answers[1]}
-      </Button>
-      <Button
-        className="answers-btn"
-        variant="dark"
-        value={answers[2]}
-        onClick={(e) => storeAnswer(e)}
-      >
-        {answers[2]}
-      </Button>
-      <Button
-        className="answers-btn"
-        variant="dark"
-        value={answers[3]}
-        onClick={(e) => storeAnswer(e)}
-      >
-        {answers[3]}
-      </Button>
-    </ButtonGroup>
-  );
-};
-
-///* create buttons for true or false answers* \\\
-export const trueOrFalseButtons = () => {
-  return (
-    <ButtonGroup aria-label="group of buttons" size="lg">
-      <Button
-        className="answers-btn-boolean"
-        variant="dark"
-        value="True"
-        onClick={(e) => storeAnswer(e)}
-      >
-        True
-      </Button>
-      <Button
-        className="answers-btn-boolean"
-        variant="dark"
-        value="False"
-        onClick={(e) => storeAnswer(e)}
-      >
-        False
-      </Button>
-    </ButtonGroup>
-  );
-};
-
-///////////////////////////////////
-//store answer
-//////////////////////////////////
-export const storeAnswer = (e) => {
-  e.preventDefault();
-  const answer = e.target.value;
-  return answer;
 };
