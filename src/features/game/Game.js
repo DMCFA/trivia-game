@@ -10,7 +10,8 @@ const Game = () => {
   const theme = useSelector((state) => state.theme.value);
   const difficulty = useSelector((state) => state.difficulty.value);
   const amount = useSelector((state) => state.amount.value);
-  const answer = useSelector((state) => state.answer.value);
+  const score = useSelector((state) => state.question.value);
+
   const [questions, setQuestions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -27,7 +28,7 @@ const Game = () => {
 
   return (
     <div>
-      {isLoading ? <></> : <Score />}
+      {isLoading ? <></> : <Score score={score} />}
       {isLoading ? <LoadingScreen /> : <GameQuestion questions={questions} />}
       <ToastContainer />
     </div>
