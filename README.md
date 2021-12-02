@@ -113,8 +113,9 @@ Just make your selections on the opening page and you will be prompt to the game
 ## Roadmap
 
 - [x] Start project
-- [ ] Finish project and testing (70% done)
-- [ ] Add demo page
+- [x] Finish desktop and add demo page
+- [ ] Mobile-friendly
+- [ ] Finish full project and testing (85% done)
 - [ ] Add Additional Templates w/ Examples
 - [ ] Multi-language Support
   - [ ] Chinese
