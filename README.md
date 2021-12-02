@@ -22,7 +22,7 @@
     <a href="https://github.com/DMCFA/trivia-game"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="">View Demo (Coming Soon)</a>
+    <a href="https://clever-bell-3a3b47.netlify.app/">View Demo</a>
     ·
     <a href="https://github.com/DMCFA/trivia-game/issues">Report Bug</a>
     ·
