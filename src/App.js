@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Game from "./features/game/Game";
 import Begin from "./features/Begin";
+import Final from "./features/game/Final";
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
       </Switch>
       <Switch>
         <Route path="/game" component={Game}></Route>
+      </Switch>
+      <Switch>
+        <Route path="/final" component={Final}></Route>
       </Switch>
     </Router>
   );
