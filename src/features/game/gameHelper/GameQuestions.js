@@ -142,7 +142,7 @@ function GameQuestion({ questions }) {
     const answer = e.target.value;
     updateScore(answer);
     setQuestionNum(questionNum + 1);
-    if (!anyMoreQuestions) {
+    if (!anyMoreQuestions()) {
       history.push("/final");
     }
   };
@@ -158,7 +158,7 @@ function GameQuestion({ questions }) {
     <div className="game-container">
       <div className="questions-container">
         <div className="question">
-          <p>{anyMoreQuestions && displayQuestion}</p>
+          <p>{displayQuestion}</p>
           <div>
             {isBoolean
               ? trueOrFalseButtons()

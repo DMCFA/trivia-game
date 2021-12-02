@@ -29,9 +29,9 @@ export const nextAnswer = (answers) => {
 ///*takes an array with all the possible answers from the api and shuffles them around*///
 export const shuffleAnswers = (answersArray) => {
   const answers = nextAnswer(answersArray);
-  let arrLength = answers.length,
-    i,
-    t;
+  let arrLength = answers.length;
+  let i;
+  let t;
   while (arrLength) {
     i = Math.floor(Math.random() * arrLength--);
     t = answers[arrLength];
