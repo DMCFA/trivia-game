@@ -35,7 +35,7 @@ export async function getData(amount, theme, difficulty) {
   theme = themeChosen(theme);
   try {
     const response = await axios.get(
-      `${baseUrl}${amount}&${theme}&${difficulty}`
+      `${baseUrl}${amount}&${theme}&${difficulty}&type=multiple`
     );
     const data = response.data;
     return data;
