@@ -24,7 +24,7 @@ const Game = () => {
     if (hasRequestFailed) {
       toast.error("❌ Something went wrong! ❌");
     }
-  }, []);
+  }, [amount, theme, difficulty]);
 
   return (
     <div>

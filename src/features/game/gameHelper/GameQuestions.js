@@ -51,8 +51,7 @@ function GameQuestion({ questions }) {
     if (question.type === "multiple") {
       const allAnswers = question.incorrect_answers.slice();
       allAnswers.push(question.correct_answer);
-      shuffleAnswers(allAnswers);
-      return allAnswers;
+      return shuffleAnswers(allAnswers);
     }
     toggleIsOn();
   };
