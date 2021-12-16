@@ -163,8 +163,6 @@ Project Link: [https://github.com/DMCFA/trivia-game](https://github.com/DMCFA/tr
 
 ## Acknowledgments
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
 - [Open Trivia Database](https://opentdb.com/)
 - [Axios](https://axios-http.com/)
 - [Jest](https://jestjs.io)
